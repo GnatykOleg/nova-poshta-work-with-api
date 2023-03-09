@@ -17,7 +17,7 @@ export type ObjectData = [{ [key: string]: string | number | boolean }];
 
 export interface IDataFromApi {
   success: boolean;
-  data: ObjectData;
+  data: ObjectData | [];
   errors: Array<string> | [];
   translatedErrors: [];
   warnings: ObjectData | Array<string>;

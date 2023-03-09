@@ -5,7 +5,7 @@ import { ITrackingSliceState, IDataFromApi } from "../../types/types";
 const initialState: ITrackingSliceState = {
   data: {
     success: false,
-    data: [{}],
+    data: [],
     errors: [],
     translatedErrors: [],
     warnings: [],
