@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IBillOfLadingState } from "../../types/types";
+import { IBillOfLadingState } from "../../types/redux.types";
 import storage from "redux-persist/lib/storage";
 
 const initialState: IBillOfLadingState = {
