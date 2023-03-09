@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction, AnyAction } from "@reduxjs/toolkit";
 import { getTrackingStatus } from "../operations/trackingOperations";
-import { ITrackingSliceState, IDataFromApi } from "../../types/types";
+import { ITrackingSliceState, IDataFromApi } from "../../types/redux.types";
 
 const initialState: ITrackingSliceState = {
   data: {

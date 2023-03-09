@@ -1,4 +1,4 @@
-import { IState } from "../../types/types";
+import { IState } from "../../types/redux.types";
 
 export const trackingDataSelector = (state: IState) =>
   state.trackingState.data.data;

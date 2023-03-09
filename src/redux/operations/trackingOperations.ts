@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AxiosResponse } from "axios";
-import { IDataFromApi } from "../../types/types";
+import { IDataFromApi } from "../../types/redux.types";
 import { trackingStatusServiceApi } from "../../services/api/trackingStatusServiceApi";
 import { toast } from "react-toastify";
 
