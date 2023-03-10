@@ -1,19 +1,4 @@
-export interface ITrackingSliceState {
-  data: IDataFromApi;
-  loading: boolean;
-  error: null | string;
-}
-
-export interface IBillOfLadingState {
-  billOfLadingStory: Array<string>;
-}
-
-export interface IState {
-  trackingState: ITrackingSliceState;
-  billOfLadingState: IBillOfLadingState;
-}
-
-export type ObjectData = [{ [key: string]: string | number | boolean }];
+export type ObjectData = [{ [key: string]: any }];
 
 export interface IDataFromApi {
   success: boolean;
@@ -26,4 +11,27 @@ export interface IDataFromApi {
   errorCodes: [];
   warningCodes: [];
   infoCodes: [];
+}
+
+export interface ITrackingSliceState {
+  data: IDataFromApi;
+  loading: boolean;
+  error: null | string;
+}
+
+export interface IBillOfLadingState {
+  billOfLadingStory: Array<string>;
+}
+
+export interface IDepartmentsSliceState {
+  departmentsData: IDataFromApi;
+  citiesData: IDataFromApi;
+  loading: boolean;
+  error: null | string;
+}
+
+export interface IState {
+  trackingState: ITrackingSliceState;
+  billOfLadingState: IBillOfLadingState;
+  departmentsState: IDepartmentsSliceState;
 }

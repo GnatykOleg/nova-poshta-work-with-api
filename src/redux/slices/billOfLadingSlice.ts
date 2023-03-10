@@ -3,7 +3,7 @@ import { IBillOfLadingState } from "../../types/redux.types";
 import storage from "redux-persist/lib/storage";
 
 const initialState: IBillOfLadingState = {
-  billOfLadingStory: [],
+  billOfLadingStory: [] as string[],
 };
 
 const billOfLadingSlice = createSlice({

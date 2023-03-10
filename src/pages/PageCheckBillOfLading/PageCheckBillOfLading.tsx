@@ -23,7 +23,6 @@ const PageCheckBillOfLading: FC = () => {
   const [billOfLading, setBillOfLading] = useState("");
   const dispatch = useAppDispatch();
   const onChange = (event: EventOnChange) => {
-    console.log("event.currentTarget.value IN APP", event.currentTarget.value);
     setBillOfLading(event.currentTarget.value);
   };
 
