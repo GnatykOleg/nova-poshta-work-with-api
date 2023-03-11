@@ -4,7 +4,7 @@ import { trackingStatusServiceApi } from "../../services/api/trackingStatusServi
 import { toast } from "react-toastify";
 
 export const getTrackingStatus = createAsyncThunk<
-  IDataFromApi,
+  IDataFromApi<[]>,
   string,
   { rejectValue: string }
 >("tracking", async (billOfLading: string, { rejectWithValue }) => {

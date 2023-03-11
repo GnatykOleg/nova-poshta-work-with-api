@@ -3,7 +3,7 @@ import { getTrackingStatus } from "../operations/trackingOperations";
 import { ITrackingSliceState, IDataFromApi } from "../../types/redux.types";
 
 const initialState: ITrackingSliceState = {
-  data: {
+  trackingData: {
     success: false,
     data: [],
     errors: [],
@@ -32,8 +32,8 @@ const trackingSlice = createSlice({
 
     builder.addCase(
       getTrackingStatus.fulfilled,
-      (state, { payload }: PayloadAction<IDataFromApi>) => {
-        state.data = payload;
+      (state, { payload }: PayloadAction<IDataFromApi<[]>>) => {
+        state.trackingData = payload;
         state.loading = false;
       }
     );

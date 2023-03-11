@@ -13,7 +13,10 @@ import { useAppDispatch } from "../../hooks/reduxHooks";
 
 import { setTBillOfLadingStory } from "../../redux/slices/billOfLadingSlice";
 import { getTrackingStatus } from "../../redux/operations/trackingOperations";
-import { EventOnChange, EventOnSubmit } from "../../types/components.types";
+import {
+  EventOnChange,
+  EventOnSubmit,
+} from "../../types/tracking-components.types";
 
 import { toast } from "react-toastify";
 

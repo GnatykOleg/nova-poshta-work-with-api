@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
 import { useAppSelector } from "../../hooks/reduxHooks";
-import { trackingDataSelector } from "../../redux/selectors";
+import { trackingDataSelector } from "../../redux/selectors/trackingSelectors";
 import * as Styled from "./TrackingData.styled";
 
 const TrackingData: React.FC = () => {

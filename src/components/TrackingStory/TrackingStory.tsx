@@ -3,9 +3,9 @@ import { nanoid } from "@reduxjs/toolkit";
 
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { clearTBillOfLadingStory } from "../../redux/slices/billOfLadingSlice";
-import { billOfLadingDataSelector } from "../../redux/selectors";
+import { billOfLadingDataSelector } from "../../redux/selectors/billOfLadingSelectors";
 
-import { ITrackingStoryProps } from "../../types/components.types";
+import { ITrackingStoryProps } from "../../types/tracking-components.types";
 
 import { Typography, Button, CardActions } from "@mui/material";
 
