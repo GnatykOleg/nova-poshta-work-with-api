@@ -7,7 +7,7 @@ import {
   TrackingData,
   TrackingStory,
   Header,
-} from "../../components";
+} from "../../components/Tracking";
 
 import { useAppDispatch } from "../../hooks/reduxHooks";
 
