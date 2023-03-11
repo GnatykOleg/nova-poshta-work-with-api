@@ -16,7 +16,7 @@ export interface IDataFromApi<T> {
 }
 
 export interface ITrackingSliceState {
-  data: IDataFromApi<[]>;
+  trackingData: IDataFromApi<[]>;
   loading: boolean;
   error: null | string;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import { Button } from "@mui/material";
-import { ITrackingFormProps } from "../../types/components.types";
+import { ITrackingFormProps } from "../../../types/tracking-components.types";
 import * as Styled from "./TrackingForm.styled";
 
 const TrackingForm: React.FC<ITrackingFormProps> = ({
