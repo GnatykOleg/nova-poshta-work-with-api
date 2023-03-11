@@ -2,20 +2,17 @@ import { styled } from "@mui/styles";
 import { TextField } from "@mui/material";
 
 export const Form = styled("form")({
-  marginBottom: "1rem",
+  marginBottom: "3rem",
+  width: "100%",
+  maxWidth: "468px",
+  minHeight: "170px",
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-
-  "@media screen and (min-width:768px)": {
-    flexDirection: "unset",
-    justifyContent: "space-between",
-    marginBottom: "2rem",
-  },
+  justifyContent: "space-between",
 });
 
 export const Input = styled(TextField)({
-  margin: "20px",
   width: "100%",
   maxWidth: "400px",
 

@@ -7,7 +7,7 @@ const Header: React.FC = () => {
   const { pathname } = useLocation();
 
   return (
-    <AppBar position="static">
+    <AppBar position="relative" sx={{ zIndex: 1400 }}>
       <Toolbar sx={{ justifyContent: "space-between" }} component={"ul"}>
         <li>
           <Button
