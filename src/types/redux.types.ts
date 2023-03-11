@@ -1,12 +1,14 @@
+import { SelectValuesTypes } from "./departments-components.types";
+
 export type ObjectData = [{ [key: string]: any }];
 
-export interface IDataFromApi {
+export interface IDataFromApi<T> {
   success: boolean;
   data: ObjectData | [];
   errors: Array<string> | [];
   translatedErrors: [];
   warnings: ObjectData | Array<string>;
-  info: [];
+  info: T;
   messageCodes: [];
   errorCodes: [];
   warningCodes: [];
@@ -14,7 +16,7 @@ export interface IDataFromApi {
 }
 
 export interface ITrackingSliceState {
-  data: IDataFromApi;
+  data: IDataFromApi<[]>;
   loading: boolean;
   error: null | string;
 }
@@ -24,8 +26,14 @@ export interface IBillOfLadingState {
 }
 
 export interface IDepartmentsSliceState {
-  departmentsData: IDataFromApi;
-  citiesData: IDataFromApi;
+  departmentsData: IDataFromApi<{ totalCount: number }>;
+  citiesData: IDataFromApi<{ totalCount: number }>;
+
+  city: string;
+  departmentsSelectValue: SelectValuesTypes;
+  page: number;
+  departmentRef: string | undefined;
+
   loading: boolean;
   error: null | string;
 }

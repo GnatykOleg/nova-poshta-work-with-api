@@ -1,13 +1,15 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { IDataFromApi } from "../../types/redux.types";
+
 import {
   departmentsServiceApi,
   departmentsCitiesServiceApi,
 } from "../../services/api/departmentsServiceApi";
+
 import { toast } from "react-toastify";
 
 export const getDepartmentsCities = createAsyncThunk<
-  IDataFromApi,
+  IDataFromApi<{ totalCount: number }>,
   undefined,
   { rejectValue: string }
 >("cities", async (_, { rejectWithValue }) => {
@@ -21,13 +23,15 @@ export const getDepartmentsCities = createAsyncThunk<
 });
 
 export const getDepartments = createAsyncThunk<
-  IDataFromApi,
-  string,
+  IDataFromApi<{ totalCount: number }>,
+  {
+    city: string;
+    page: number;
+  },
   { rejectValue: string }
->("departments", async (city, { rejectWithValue }) => {
+>("departments", async ({ city, page }, { rejectWithValue }) => {
   try {
-    const { data } = await departmentsServiceApi(city);
-    console.log("data", data);
+    const { data } = await departmentsServiceApi({ city, page });
     return data;
   } catch (error: any) {
     toast.error(error.message);
