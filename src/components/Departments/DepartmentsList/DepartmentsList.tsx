@@ -19,35 +19,41 @@ const DepartmentsList: React.FC<IDepartmentsListProps> = ({
   if (loading) return <Loader />;
   return (
     <Grid container spacing={2}>
-      {departmentsData.map(({ Description, CityDescription, Schedule }) => (
-        <Grid item key={nanoid()} xs={12} sm={6} md={4}>
-          <Card sx={{ height: "100%" }}>
-            <CardContent>
-              <Typography variant="h6" component="p" gutterBottom>
-                {Description}
-              </Typography>
-
-              <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
-                Мicто: {CityDescription}
-              </Typography>
-
-              <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
-                Графiк роботи:
-              </Typography>
-              {Object.entries(Schedule).map(([day, time]) => (
-                <Typography
-                  component="p"
-                  gutterBottom
-                  variant="body2"
-                  key={nanoid()}
-                >
-                  {`${day}: ${time}`}
+      {departmentsData.map(
+        ({ Description, CityDescription, Schedule, Phone }) => (
+          <Grid item key={nanoid()} xs={12} sm={6} md={4}>
+            <Card sx={{ height: "100%" }}>
+              <CardContent>
+                <Typography variant="h6" component="p" gutterBottom>
+                  {Description}
                 </Typography>
-              ))}
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
+
+                <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
+                  Мicто: {CityDescription}
+                </Typography>
+
+                <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
+                  Телефон: {Phone ? Phone : "Номер не знайдено"}
+                </Typography>
+
+                <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
+                  Графiк роботи:
+                </Typography>
+                {Object.entries(Schedule).map(([day, time]) => (
+                  <Typography
+                    component="p"
+                    gutterBottom
+                    variant="body2"
+                    key={nanoid()}
+                  >
+                    {`${day}: ${time}`}
+                  </Typography>
+                ))}
+              </CardContent>
+            </Card>
+          </Grid>
+        )
+      )}
     </Grid>
   );
 };

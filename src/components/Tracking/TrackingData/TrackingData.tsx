@@ -3,23 +3,29 @@ import { Typography } from "@mui/material";
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { trackingDataSelector } from "../../../redux/selectors/trackingSelectors";
 import * as Styled from "./TrackingData.styled";
+import { billOfLadingDataSelector } from "../../../redux/selectors/billOfLadingSelectors";
 
 const TrackingData: React.FC = () => {
   const trackingData = useAppSelector(trackingDataSelector);
+  const story = useAppSelector(billOfLadingDataSelector);
+
+  const deliveryStatus = story.length > 0 && trackingData[0]?.Status;
+
+  const sender = story.length > 0 && trackingData[0]?.WarehouseSender;
+
+  const recipient = story.length > 0 && trackingData[0]?.WarehouseRecipient;
+
   return (
     <Styled.MyCard>
       <Styled.MyCardContent>
-        <Typography variant="h5" component={"p"}>
-          Iнфо
+        <Typography variant="h6" component={"p"}>
+          <strong>Статус доставки:</strong> {deliveryStatus}
         </Typography>
         <Typography variant="h6" component={"p"}>
-          <strong>Статус доставки:</strong> {trackingData[0]?.Status}
+          <strong> Відправлено:</strong> {sender}
         </Typography>
         <Typography variant="h6" component={"p"}>
-          <strong> Відправлено:</strong> {trackingData[0]?.WarehouseSender}
-        </Typography>
-        <Typography variant="h6" component={"p"}>
-          <strong> Отримано:</strong> {trackingData[0]?.WarehouseRecipient}
+          <strong> Отримано:</strong> {recipient}
         </Typography>
       </Styled.MyCardContent>
     </Styled.MyCard>

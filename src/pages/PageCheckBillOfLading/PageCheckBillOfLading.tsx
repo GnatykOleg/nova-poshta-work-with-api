@@ -20,10 +20,9 @@ import {
 
 import { toast } from "react-toastify";
 
-import * as Styled from "./PageCheckBillOfLading.styled";
-
 const PageCheckBillOfLading: FC = () => {
   const [billOfLading, setBillOfLading] = useState("");
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false);
   const dispatch = useAppDispatch();
   const onChange = (event: EventOnChange) => {
     setBillOfLading(event.currentTarget.value);
@@ -44,20 +43,36 @@ const PageCheckBillOfLading: FC = () => {
     dispatch(getTrackingStatus(billOfLading));
   };
 
+  const sidebarHandler = () => {
+    setIsSideBarOpen((state) => !state);
+  };
+
   return (
     <>
       <Header />
+
       <section>
-        <Container sx={{ pt: "3rem", pb: "3rem" }}>
+        <TrackingStory
+          onClick={onClick}
+          sidebarHandler={sidebarHandler}
+          isSideBarOpen={isSideBarOpen}
+        />
+        <Container
+          sx={{
+            pt: "3rem",
+            pb: "3rem",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <TrackingForm
             billOfLading={billOfLading}
             onChange={onChange}
             submitForm={submitForm}
+            sidebarHandler={sidebarHandler}
           />
-          <Styled.DataWrapper>
-            <TrackingData />
-            <TrackingStory onClick={onClick} />
-          </Styled.DataWrapper>
+          <TrackingData />
         </Container>
       </section>
     </>

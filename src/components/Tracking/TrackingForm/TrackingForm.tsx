@@ -7,6 +7,7 @@ const TrackingForm: React.FC<ITrackingFormProps> = ({
   onChange,
   billOfLading,
   submitForm,
+  sidebarHandler,
 }: ITrackingFormProps): JSX.Element => {
   return (
     <Styled.Form onSubmit={(event) => submitForm(event)}>
@@ -19,6 +20,10 @@ const TrackingForm: React.FC<ITrackingFormProps> = ({
       />
       <Button type="submit" variant="outlined">
         Отримати статус ТТН
+      </Button>
+
+      <Button variant="outlined" onClick={() => sidebarHandler()}>
+        Iсторія
       </Button>
     </Styled.Form>
   );

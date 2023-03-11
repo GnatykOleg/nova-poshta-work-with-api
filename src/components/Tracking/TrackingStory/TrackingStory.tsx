@@ -7,40 +7,60 @@ import { billOfLadingDataSelector } from "../../../redux/selectors/billOfLadingS
 
 import { ITrackingStoryProps } from "../../../types/tracking-components.types";
 
-import { Typography, Button, CardActions } from "@mui/material";
+import { Typography, Button, Drawer, Divider, IconButton } from "@mui/material";
+
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 import * as Styled from "./TrackingStory.styled";
 
 const TrackingStory: React.FC<ITrackingStoryProps> = ({
   onClick,
+  sidebarHandler,
+  isSideBarOpen,
 }: ITrackingStoryProps) => {
   const dispatch = useAppDispatch();
 
   const story = useAppSelector(billOfLadingDataSelector);
 
   return (
-    <Styled.MyCard>
+    <Drawer anchor="right" open={isSideBarOpen} variant="temporary">
       <Styled.MyCardContent>
-        <Typography variant="h5">Історія:</Typography>
+        <Styled.ActionsWrapper>
+          <IconButton onClick={() => sidebarHandler()} aria-label="hide">
+            <ArrowForwardIosIcon />
+          </IconButton>
+          <Button
+            onClick={() => dispatch(clearTBillOfLadingStory())}
+            type="submit"
+            variant="outlined"
+          >
+            Очистити iсторію ТТН
+          </Button>
+        </Styled.ActionsWrapper>
+
+        <Typography variant="h5" component="p" gutterBottom>
+          Історія:
+        </Typography>
+        {story.length > 0 && (
+          <Typography color={"darkgray"} component="p" gutterBottom>
+            * натисніть на ТТН, щоб отримати інформацію
+          </Typography>
+        )}
         {story.map((billOfLading: string) => (
-          <Button key={nanoid()} onClick={() => onClick(billOfLading)}>
+          <Button
+            key={nanoid()}
+            onClick={() => {
+              onClick(billOfLading);
+            }}
+          >
             <Typography variant="h6" component={"p"}>
               ТТН : {billOfLading}
             </Typography>
           </Button>
         ))}
+        <Divider />
       </Styled.MyCardContent>
-      <CardActions>
-        <Button
-          onClick={() => dispatch(clearTBillOfLadingStory())}
-          sx={{ mt: "1rem" }}
-          type="submit"
-          variant="outlined"
-        >
-          Очистити iсторію ТТН
-        </Button>
-      </CardActions>
-    </Styled.MyCard>
+    </Drawer>
   );
 };
 

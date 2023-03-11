@@ -63,7 +63,6 @@ const departmentsSlice = createSlice({
 
     // Set page value
     setPage(state, action: PayloadAction<number>) {
-      console.log("action.payload", action.payload);
       state.page = action.payload;
     },
 

@@ -4,7 +4,10 @@ import React, { useEffect, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { getDepartmentsCities } from "../../../redux/operations/departmentsOperations";
-import { departmentsCitiesDataSelector } from "../../../redux/selectors/departmentsSelectors";
+import {
+  departmentsCitiesDataSelector,
+  departmentsCitySelector,
+} from "../../../redux/selectors/departmentsSelectors";
 import {
   setDepartmentsSelectValue,
   setFindDepartmentByRef,
@@ -20,6 +23,8 @@ import * as Styled from "./CitiesSelect.styled";
 const CitiesSelect: React.FC<any> = (): JSX.Element => {
   // Filter for filtration cities
   const [filter, setFilter] = useState<string>("");
+
+  const city = useAppSelector(departmentsCitySelector);
 
   const dispatch = useAppDispatch();
 
@@ -75,6 +80,7 @@ const CitiesSelect: React.FC<any> = (): JSX.Element => {
   return (
     <Styled.MyBox>
       <Select
+        isSearchable
         styles={Styled.selectStyles}
         onInputChange={citiesInputChange}
         onChange={(event: SelectOnChangeEventType) => citiesOnChange(event)}
@@ -82,7 +88,7 @@ const CitiesSelect: React.FC<any> = (): JSX.Element => {
         required
         placeholder="Почнiть вводити мicто.."
         noOptionsMessage={() => "Немає такого міста"}
-        options={filteredCitiesOptions || [{ value: "", label: "" }]}
+        options={filteredCitiesOptions || [{ value: city, label: city }]}
         maxMenuHeight={200}
       />
     </Styled.MyBox>
