@@ -13,10 +13,16 @@ import {
 
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 
+import useMediaQuery from "@mui/material/useMediaQuery";
+
 import * as Styled from "./DepartmentsPagination.styled";
 
 const DepartmentsPagination: React.FC = () => {
   const dispatch = useAppDispatch();
+
+  const isTablet = useMediaQuery("(min-width:768px)");
+
+  const paginationSize = isTablet ? "large" : "small";
 
   // Get total count of departments from redux store
   const { totalCount } = useAppSelector(departmentsTotalCountSelector);
@@ -39,6 +45,7 @@ const DepartmentsPagination: React.FC = () => {
     <Styled.MyBox>
       <Stack spacing={2}>
         <Pagination
+          size={paginationSize}
           onChange={(_, value: number) => paginationOnChange(value)}
           count={Math.ceil(totalCount / 12)}
           page={page}
