@@ -1,5 +1,3 @@
-import debounce from "lodash.debounce";
-
 import React, { useEffect, useState } from "react";
 
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
@@ -7,6 +5,7 @@ import { getDepartmentsCities } from "../../../redux/operations/departmentsOpera
 import {
   departmentsCitiesDataSelector,
   departmentsCitySelector,
+  departmentsLoadingSelector,
 } from "../../../redux/selectors/departmentsSelectors";
 import {
   setDepartmentsSelectValue,
@@ -19,12 +18,17 @@ import { SelectOnChangeEventType } from "../../../types/departments-components.t
 
 import Select from "react-select";
 import * as Styled from "./CitiesSelect.styled";
+import { Loader } from "../../Common";
 
 const CitiesSelect: React.FC<any> = (): JSX.Element => {
   // Filter for filtration cities
   const [filter, setFilter] = useState<string>("");
 
+  // Get city
   const city = useAppSelector(departmentsCitySelector);
+
+  // Get laoding status
+  const loading = useAppSelector(departmentsLoadingSelector);
 
   const dispatch = useAppDispatch();
 
@@ -55,10 +59,10 @@ const CitiesSelect: React.FC<any> = (): JSX.Element => {
     }
   };
 
-  // Set select input value to filter state with debounce
-  const citiesInputChange = debounce((value: string) => {
+  // Set select input value to filter state
+  const citiesInputChange = (value: string) => {
     setFilter(value);
-  }, 500);
+  };
 
   // Get all cities from redux state
   const cities = useAppSelector(departmentsCitiesDataSelector);
@@ -76,6 +80,8 @@ const CitiesSelect: React.FC<any> = (): JSX.Element => {
         value: Description,
         label: Description,
       }));
+
+  if (loading) return <Loader />;
 
   return (
     <Styled.MyBox>
