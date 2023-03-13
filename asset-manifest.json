@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/nova-poshta-work-with-api/static/css/main.10edc0d0.css",
-    "main.js": "/nova-poshta-work-with-api/static/js/main.1b09b503.js",
+    "main.js": "/nova-poshta-work-with-api/static/js/main.22ff4e13.js",
     "static/js/115.b12a3f5f.chunk.js": "/nova-poshta-work-with-api/static/js/115.b12a3f5f.chunk.js",
     "static/js/946.e72e5618.chunk.js": "/nova-poshta-work-with-api/static/js/946.e72e5618.chunk.js",
     "static/js/62.2a9988fc.chunk.js": "/nova-poshta-work-with-api/static/js/62.2a9988fc.chunk.js",
@@ -12,7 +12,7 @@
     "static/media/np-logo-full.png": "/nova-poshta-work-with-api/static/media/np-logo-full.be985eebdd733bc3b2ec.png",
     "index.html": "/nova-poshta-work-with-api/index.html",
     "main.10edc0d0.css.map": "/nova-poshta-work-with-api/static/css/main.10edc0d0.css.map",
-    "main.1b09b503.js.map": "/nova-poshta-work-with-api/static/js/main.1b09b503.js.map",
+    "main.22ff4e13.js.map": "/nova-poshta-work-with-api/static/js/main.22ff4e13.js.map",
     "115.b12a3f5f.chunk.js.map": "/nova-poshta-work-with-api/static/js/115.b12a3f5f.chunk.js.map",
     "946.e72e5618.chunk.js.map": "/nova-poshta-work-with-api/static/js/946.e72e5618.chunk.js.map",
     "62.2a9988fc.chunk.js.map": "/nova-poshta-work-with-api/static/js/62.2a9988fc.chunk.js.map",
@@ -22,6 +22,6 @@
   },
   "entrypoints": [
     "static/css/main.10edc0d0.css",
-    "static/js/main.1b09b503.js"
+    "static/js/main.22ff4e13.js"
   ]
 }
