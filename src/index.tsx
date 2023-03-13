@@ -16,7 +16,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={null}>
-        <BrowserRouter basename="/nova-poshta-work-with-api/">
+        <BrowserRouter basename="/nova-poshta-work-with-api">
           <App />
         </BrowserRouter>
       </PersistGate>
