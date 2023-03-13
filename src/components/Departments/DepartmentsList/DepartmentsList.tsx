@@ -8,7 +8,7 @@ import { departmentsLoadingSelector } from "../../../redux/selectors/departments
 import { Grid, Card, CardContent, Typography } from "@mui/material";
 import { nanoid } from "@reduxjs/toolkit";
 
-import Loader from "../../Common/Loader/Loader";
+import { Loader } from "../../Common";
 
 const DepartmentsList: React.FC<IDepartmentsListProps> = ({
   departmentsData,
