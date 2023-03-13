@@ -10,6 +10,10 @@ export const getTrackingStatus = createAsyncThunk<
 >("tracking", async (billOfLading: string, { rejectWithValue }) => {
   try {
     const { data } = await trackingStatusServiceApi(billOfLading);
+
+    if (data.data[0]?.StatusCode === "3")
+      toast.error(`ТТН: ${data.data[0]?.Number}  Не знайдений у базi...`);
+
     return data;
   } catch (error: any) {
     toast.error(error.message);
