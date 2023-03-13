@@ -18,9 +18,9 @@ import {
   DepartmentsSelect,
 } from "../../components/Departments";
 
-import { Header } from "../../components/Tracking";
+import { Header } from "../../components/Common";
 
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 
 const PageDepartments: FC = () => {
   const dispatch = useAppDispatch();
@@ -43,12 +43,22 @@ const PageDepartments: FC = () => {
   return (
     <>
       <Header />
-      <Container sx={{ pt: "3rem", pb: "3rem" }}>
-        <CitiesSelect />
-        <DepartmentsSelect />
-        {departments.length > 0 && <DepartmentsPagination />}
-        {city && <DepartmentsList departmentsData={departmentsData} />}
-      </Container>
+      <section>
+        <Typography
+          aria-label="Заголовок секцiiСписок вiддiлень"
+          variant="h1"
+          component={"h2"}
+          sx={{ display: "none" }}
+        >
+          Список вiддiлень
+        </Typography>
+        <Container sx={{ pt: "3rem", pb: "3rem" }}>
+          <CitiesSelect />
+          <DepartmentsSelect />
+          {departments.length > 0 && <DepartmentsPagination />}
+          {city && <DepartmentsList departmentsData={departmentsData} />}
+        </Container>
+      </section>
     </>
   );
 };

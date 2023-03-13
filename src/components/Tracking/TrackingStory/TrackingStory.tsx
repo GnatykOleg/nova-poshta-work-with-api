@@ -7,14 +7,15 @@ import { billOfLadingDataSelector } from "../../../redux/selectors/billOfLadingS
 
 import { ITrackingStoryProps } from "../../../types/tracking-components.types";
 
-import { Typography, Button, Drawer, Divider, IconButton } from "@mui/material";
+import { Typography, Button, Divider, IconButton } from "@mui/material";
 
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import PrimaryButton from "../../Common/PrimaryButton/PrimaryButton";
 
 import * as Styled from "./TrackingStory.styled";
 
 const TrackingStory: React.FC<ITrackingStoryProps> = ({
-  onClick,
+  getBillOfLadingStatusFromTrackingStory,
+  deleteBillOfLadingFromTrackingStory,
   sidebarHandler,
   isSideBarOpen,
 }: ITrackingStoryProps) => {
@@ -23,44 +24,49 @@ const TrackingStory: React.FC<ITrackingStoryProps> = ({
   const story = useAppSelector(billOfLadingDataSelector);
 
   return (
-    <Drawer anchor="right" open={isSideBarOpen} variant="temporary">
+    <Styled.MyDrawer anchor="right" open={isSideBarOpen} variant="temporary">
       <Styled.MyCardContent>
         <Styled.ActionsWrapper>
           <IconButton onClick={() => sidebarHandler()} aria-label="hide">
-            <ArrowForwardIosIcon />
+            <Styled.MyIconArrowBackSidebar />
           </IconButton>
-          <Button
+
+          <PrimaryButton
+            text="Очистити iсторію ТТН"
+            type="button"
             onClick={() => dispatch(clearTBillOfLadingStory())}
-            type="submit"
-            variant="outlined"
-          >
-            Очистити iсторію ТТН
-          </Button>
+          />
         </Styled.ActionsWrapper>
 
         <Typography variant="h5" component="p" gutterBottom>
           Історія:
         </Typography>
         {story.length > 0 && (
-          <Typography color={"darkgray"} component="p" gutterBottom>
+          <Typography color={"darkgray"} component="p" sx={{ mb: "2rem" }}>
             * натисніть на ТТН, щоб отримати інформацію
           </Typography>
         )}
+
         {story.map((billOfLading: string) => (
-          <Button
-            key={nanoid()}
-            onClick={() => {
-              onClick(billOfLading);
-            }}
-          >
-            <Typography variant="h6" component={"p"}>
-              ТТН : {billOfLading}
-            </Typography>
-          </Button>
+          <Styled.MyStoryWrapper key={nanoid()}>
+            <Button
+              onClick={() =>
+                getBillOfLadingStatusFromTrackingStory(billOfLading)
+              }
+            >
+              <Typography variant="body1">ТТН : {billOfLading}</Typography>
+            </Button>
+            <PrimaryButton
+              type="button"
+              text="Видалити"
+              onClick={() => deleteBillOfLadingFromTrackingStory(billOfLading)}
+            />
+          </Styled.MyStoryWrapper>
         ))}
+
         <Divider />
       </Styled.MyCardContent>
-    </Drawer>
+    </Styled.MyDrawer>
   );
 };
 

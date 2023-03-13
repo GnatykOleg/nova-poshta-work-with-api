@@ -8,7 +8,7 @@ import { departmentsLoadingSelector } from "../../../redux/selectors/departments
 import { Grid, Card, CardContent, Typography } from "@mui/material";
 import { nanoid } from "@reduxjs/toolkit";
 
-import Loader from "../../Common/Loader/Loader";
+import { Loader } from "../../Common";
 
 const DepartmentsList: React.FC<IDepartmentsListProps> = ({
   departmentsData,
@@ -25,18 +25,20 @@ const DepartmentsList: React.FC<IDepartmentsListProps> = ({
             <Card sx={{ height: "100%" }}>
               <CardContent>
                 <Typography variant="h6" component="p" gutterBottom>
-                  {Description}
+                  {`${Description}, ${CityDescription}`}
                 </Typography>
 
-                <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
-                  Мicто: {CityDescription}
-                </Typography>
+                {Phone && (
+                  <Typography sx={{ fontSize: 16 }} component="p" gutterBottom>
+                    {`Телефон: +${Phone}`}
+                  </Typography>
+                )}
 
-                <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
-                  Телефон: {Phone ? Phone : "Номер не знайдено"}
-                </Typography>
-
-                <Typography sx={{ fontSize: 18 }} component="p" gutterBottom>
+                <Typography
+                  sx={{ fontSize: 18, color: "#1976d2" }}
+                  component="p"
+                  gutterBottom
+                >
                   Графiк роботи:
                 </Typography>
                 {Object.entries(Schedule).map(([day, time]) => (

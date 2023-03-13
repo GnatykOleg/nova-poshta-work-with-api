@@ -12,7 +12,8 @@ export interface ITrackingFormProps {
 }
 
 export interface ITrackingStoryProps {
-  onClick: (billOfLading: string) => void;
+  getBillOfLadingStatusFromTrackingStory: (billOfLading: string) => void;
+  deleteBillOfLadingFromTrackingStory: (billOfLading: string) => void;
   sidebarHandler: () => void;
   isSideBarOpen: boolean;
 }

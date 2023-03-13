@@ -2,7 +2,7 @@ import React, { FC, Suspense, lazy } from "react";
 
 import { Routes, Route } from "react-router";
 
-import { Loader } from "../components/Tracking";
+import { Loader } from "../components/Common";
 
 const PageCheckBillOfLading = lazy(
   () => import("../pages/PageCheckBillOfLading/PageCheckBillOfLading")
