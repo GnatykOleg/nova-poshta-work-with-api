@@ -13,3 +13,13 @@ export interface IDepartmentsListProps {
     [key: string]: any;
   }[];
 }
+
+export interface IDaySchedule {
+  Monday: string;
+  Tuesday: string;
+  Wednesday: string;
+  Thursday: string;
+  Friday: string;
+  Saturday: string;
+  Sunday: string;
+}
