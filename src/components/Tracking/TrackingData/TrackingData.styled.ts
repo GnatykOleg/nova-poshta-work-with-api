@@ -1,4 +1,4 @@
-import { styled } from "@mui/styles";
+import { styled } from "@mui/system";
 import { CardContent, Card, Box, Typography } from "@mui/material";
 
 import { COLORS } from "../../../services/consts/theme/colors.conts";
