@@ -15,6 +15,9 @@ jobs:
         run: |
           npm install
           npm run build
+        env:
+        REACT_APP_NP_API_KEY: ${{ secrets.REACT_APP_NP_API_KEY }}
+        REACT_APP_NP_BASE_URL: ${{ secrets.REACT_APP_NP_BASE_URL }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:
