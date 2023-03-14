@@ -1,6 +1,9 @@
 import React from "react";
 
-import { IDepartmentsListProps } from "../../../types/departments-components.types";
+import {
+  IDepartmentsListProps,
+  IDaySchedule,
+} from "../../../types/departments-components.types";
 
 import { useAppSelector } from "../../../hooks/reduxHooks";
 import { departmentsLoadingSelector } from "../../../redux/selectors/departmentsSelectors";
@@ -15,6 +18,16 @@ const DepartmentsList: React.FC<IDepartmentsListProps> = ({
 }: IDepartmentsListProps) => {
   // Get loading status
   const loading = useAppSelector(departmentsLoadingSelector);
+
+  const dayNames: IDaySchedule = {
+    Monday: "Понеділок",
+    Tuesday: "Вівторок",
+    Wednesday: "Середа",
+    Thursday: "Четвер",
+    Friday: "П'ятниця",
+    Saturday: "Субота",
+    Sunday: "Неділя",
+  };
 
   if (loading) return <Loader />;
   return (
@@ -48,7 +61,7 @@ const DepartmentsList: React.FC<IDepartmentsListProps> = ({
                     variant="body2"
                     key={nanoid()}
                   >
-                    {`${day}: ${time}`}
+                    {`${dayNames[day as keyof IDaySchedule]}: ${time}`}
                   </Typography>
                 ))}
               </CardContent>
