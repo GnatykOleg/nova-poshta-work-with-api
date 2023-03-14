@@ -1,4 +1,4 @@
-import { styled } from "@mui/styles";
+import { styled } from "@mui/system";
 import { Container } from "@mui/material";
 
 export const MyContainer = styled(Container)({
