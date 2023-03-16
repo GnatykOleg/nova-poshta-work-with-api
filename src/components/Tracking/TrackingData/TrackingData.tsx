@@ -9,8 +9,11 @@ import NumbersIcon from "@mui/icons-material/Numbers";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import * as Styled from "./TrackingData.styled";
+import { ITrackindDataProps } from "../../../types/tracking-components.types";
 
-const TrackingData: React.FC<any> = ({ setShowBillOfLadingStatus }: any) => {
+const TrackingData: React.FC<ITrackindDataProps> = ({
+  setShowBillOfLadingStatus,
+}: ITrackindDataProps) => {
   const trackingData = useAppSelector(trackingDataSelector);
 
   const { WarehouseSender, Status, WarehouseRecipient, StatusCode, Number } =
