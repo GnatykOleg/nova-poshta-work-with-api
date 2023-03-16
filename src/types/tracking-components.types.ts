@@ -17,3 +17,7 @@ export interface ITrackingStoryProps {
   sidebarHandler: () => void;
   isSideBarOpen: boolean;
 }
+
+export interface ITrackindDataProps {
+  setShowBillOfLadingStatus: (value: React.SetStateAction<boolean>) => void;
+}
